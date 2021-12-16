@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+</head>
+<body>
+    <style>
+        body{
+            margin: 0px;
+        }
+        .clock_position{
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            display: grid;
+            place-content: center center;
+        }
+
+        .clock_text{
+            font-size: 50px;
+        }
+    </style>
+        <div class="clock_position">
+            <p id="clock_text" class="clock_text"></p> <!--TODO: вставить <script>-->
+        </div>
+    <script>
+// DONE: Мы собираемся изменить то, что находится в <p>
+// DONE: Заменить на настоящее время   
+// TODO: Автообновить время
+        // var a;
+        // var b = 1;
+
+        // a = 'stroka';
+
+        // var dish = {
+
+        // }
+        // dish.fork = "vilka";
+        // dish.vashTheDish = () => {}
+        // dish.vashTheDish();
+
+        // var books = ['lagom', 'vagina'];
+        // books.push('google')
+
+
+        function getRealTime(){
+            var date = new Date()
+            var seconds=date.getSeconds();
+            var minutes=date.getMinutes();
+            var hours=date.getHours();
+
+            var time = `${hours}:${minutes}:${seconds}`;
+            return time
+        }   
+        function updateClockTextElement(time){
+            var element = document.getElementById("clock_text")
+            element.innerHTML = time;
+        }
+        function updateTime(){
+            var time = getRealTime();
+            updateClockTextElement(time);    
+        }
+        updateTime()
+        window.setInterval(updateTime,1000);
+        
+
+    </script>
+</body>
+</html>
